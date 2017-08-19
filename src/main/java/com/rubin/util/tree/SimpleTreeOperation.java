@@ -51,17 +51,6 @@ public class SimpleTreeOperation implements TreeOperation {
 
     @Override
     public String toString() {
-        String result = "";
-
-        if (type == TreeOperationType.INSERT) {
-            result = String.format("INSERT (%d)@%d", rightIndex, cost);
-        } else if (type == TreeOperationType.DELETE) {
-            result = String.format("DELETE (%d)@%d", leftIndex, cost);
-        } else if (type == TreeOperationType.REPLACE) {
-            result = String.format("REPLACE (%d, %d)@%d", leftIndex, rightIndex, cost);
-        } else if (type == TreeOperationType.KEEP) {
-            result = String.format("KEEP (%d, %d)@%d", leftIndex, rightIndex, cost);
-        }
-        return result;
+        return String.format("%s (%d, %d)@%d", type.name(), leftIndex, rightIndex, cost);
     }
 }
